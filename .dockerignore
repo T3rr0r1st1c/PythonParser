@@ -1,0 +1,17 @@
+# file: .dockerignore
+
+
+# кэши
+.ruff_cache/
+.pytest_cache/
+app/tests/__pycache__
+
+# убираем все лишние файлы с переменными окружениями
+.env
+
+# настройки IDE и редакторов кода
+.vscode/
+.idea/
+
+# папка с vcs (если вдруг она подцепится)
+.git/

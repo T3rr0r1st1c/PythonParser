@@ -1,0 +1,51 @@
+# file: pyproject.toml
+
+
+# ------- METADATA -------
+
+[project]
+name = ""
+version = "0.1.0"
+description = ""
+authors = [{name="", email=""}]
+readme = "readme.md"
+requires-python = "==3.13"
+license = {text = "MIT"}
+dependencies = [
+    "ruff==0.14.6",
+    "pytest==8.4.1"
+]
+
+# ------------------------
+
+
+
+# ------- LINTER -------
+
+[tool.ruff]
+line-length = 88 # длина строк
+fix = true # авто правки
+target-version = "py313" # версия питона
+exclude = ["app/src"] # не проверять, т.к. будут лежать ресурсыы
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "C4", "ARG"] # выбор групп правил (E, F — базовые ошибки; I — сортировка импортов (замена isort); B — баги; UP — улучшения синтаксиса; C4 — проверки циклов; ARG — неиспользуемые аргументы функций)
+
+[tool.ruff.lint.isort]
+combine-as-imports = true # объединяем однотипные импорты
+force-single-line = false # каждый импорт в отдельный строке
+known-first-party = ["app"] # наши модули
+lines-after-imports = 2 # отступп в строк после импорта (must have)
+order-by-type = true # разделяем импорты на разные группы (тоже довольно прикольно)
+
+# ----------------------
+
+
+
+# ------- TESTS -------
+
+[tool.pytest.ini_options]
+testpaths = ["app/tests"] # папка с тестами
+python_files = ["t_*.py"] # указываем параметры поиска тестовых файлов, у нас это все файлы с началом "t_"
+
+# ---------------------
