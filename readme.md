@@ -19,7 +19,24 @@ docker build -t app
 // Запуск приложения через докер
 docker run --rm -it app
 ```
+## pre-commit-config.yaml
+```
+// Добавление в проект 
+pip install pre-commit
+//Установка 
+pre-commit install
 
+Теперь перед каждым `git commit` код автоматически проверяется и форматируется:
+- Black — форматирование Python
+- Ruff — линтинг стиля и ошибок  
+- Удаление лишних пробелов
+- Проверка YAML/JSON
+
+//Проверка всех файлов
+pre-commit run --all-files
+//Автообновление
+pre-commit autoupdate
+```
 ## Установка pyenv
 ```
 https://github.com/pyenv-win/pyenv-win/blob/master/README.md#quick-start
